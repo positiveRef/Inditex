@@ -1,0 +1,2 @@
+CREATE TABLE PRICES (PRICE_LIST identity not null primary key, BRAND_ID number not null, START_DATE timestamp not null, END_DATE timestamp not null, PRODUCT_ID number not null,
+PRIORITY number not null, PRICE numeric(20, 2) not null, CURRENCY varchar(3) not null);
