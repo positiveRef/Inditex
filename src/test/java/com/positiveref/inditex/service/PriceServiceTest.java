@@ -18,7 +18,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class PriceServiceImplTest {
+class PriceServiceTest {
 
     @InjectMocks
     private PriceServiceImpl pricesService;
