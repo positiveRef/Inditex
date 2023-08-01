@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @Table(name = "PRICES")
-public class PricesEntity {
+public class PriceEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

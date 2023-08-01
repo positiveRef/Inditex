@@ -1,6 +1,6 @@
 package com.positiveref.inditex.repository;
 
-import com.positiveref.inditex.entity.PricesEntity;
+import com.positiveref.inditex.entity.PriceEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,26 +13,26 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public class PricesRepositoryTest {
+public class PriceRepositoryTest {
 
     @Autowired
-    private PricesRepository pricesRepository;
+    private PriceRepository priceRepository;
 
     @Test
     void dbLoadsAllData() {
-        long all = pricesRepository.count();
-        assertThat(all).isEqualTo(4);
+        long count = priceRepository.count();
+        assertThat(count).isEqualTo(4);
     }
 
     @Test
     void givenDateTimeProductIdAndBrandIdShouldFindTwoPriceEntities() {
         LocalDateTime dateTime = LocalDateTime.of(LocalDate.of(2020, 6, 14), LocalTime.of(15, 0, 1));
-        List<PricesEntity> entities = pricesRepository.findByDateAndProductIdAndBrandId(dateTime, 35455L, 1L);
+        long productId = 35455L;
+        List<PriceEntity> entities = priceRepository.findByDateAndProductIdAndBrandId(dateTime, productId, 1L);
         assertThat(entities).hasSize(2);
-        //TODO
-//        assertThat(entities).isEqualTo(List.of(PricesEntity.builder()
-//                .brandId(1L)
-//                .price(BigDecimal.valueOf(35.50))
-//        ))
+        assertThat(entities.get(0).getProductId()).isEqualTo(productId);
+        assertThat(entities.get(0).getPriority()).isEqualTo(1L);
+        assertThat(entities.get(0).getProductId()).isEqualTo(productId);
+        assertThat(entities.get(1).getPriority()).isEqualTo(0L);
     }
 }
