@@ -23,20 +23,17 @@ public class PriceServiceImpl implements PriceService {
 
     @Override
     public Price findPrice(LocalDateTime petitionDate, Long productId, Long brandId) {
+
         List<PriceEntity> byDateAndProductIdAndBrandId = priceRepository.findByDateAndProductIdAndBrandId(petitionDate, productId, brandId);
         log.debug("{} registers found", byDateAndProductIdAndBrandId.size());
         log.trace("Registers from PriceRepository: {}", byDateAndProductIdAndBrandId);
         Price price = byDateAndProductIdAndBrandId.stream()
                 .max(Comparator.comparing(PriceEntity::getPriority))
-                .map(this::mapPriceEntityToModel)
+                .map(priceEntity -> modelMapper.map(priceEntity, Price.class))
                 .orElse(null);
         if (price == null) {
             log.warn("Price not found with given inputs");
         }
         return price;
-    }
-
-    private Price mapPriceEntityToModel(PriceEntity priceEntity) {
-        return modelMapper.map(priceEntity, Price.class);
     }
 }
