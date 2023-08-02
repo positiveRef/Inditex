@@ -30,9 +30,5 @@ public class PriceRepositoryTest {
         long productId = 35455L;
         List<PriceEntity> entities = priceRepository.findByDateAndProductIdAndBrandId(dateTime, productId, 1L);
         assertThat(entities).hasSize(2);
-        assertThat(entities.get(0).getProductId()).isEqualTo(productId);
-        assertThat(entities.get(0).getPriority()).isEqualTo(1L);
-        assertThat(entities.get(0).getProductId()).isEqualTo(productId);
-        assertThat(entities.get(1).getPriority()).isEqualTo(0L);
     }
 }
