@@ -23,7 +23,7 @@ public class PriceController {
 
     @GetMapping(value = "/price")
     public ResponseEntity<Price> getPrice(@RequestParam
-                                          @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+                                          @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
                                           LocalDateTime dateTime,
                                           @RequestParam
                                           Long productId,

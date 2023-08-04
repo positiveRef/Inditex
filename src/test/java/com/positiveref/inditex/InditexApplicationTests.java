@@ -29,7 +29,7 @@ class InditexApplicationTests {
     void givenARequestOn14thAt10_shouldReturn200OkStatusAndExpectedData() throws Exception {
         mockMvc.perform(get("/inditex/price")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .param("dateTime", "2020-06-14 10:00:00")
+                        .param("dateTime", "2020-06-14T10:00:00")
                         .param("brandId", "1")
                         .param("productId", "35455"))
                 .andDo(print())
@@ -49,7 +49,7 @@ class InditexApplicationTests {
     void givenARequestOn14thAt16_shouldReturn200OkStatusAndExpectedData() throws Exception {
         mockMvc.perform(get("/inditex/price")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .param("dateTime", "2020-06-14 16:00:00")
+                        .param("dateTime", "2020-06-14T16:00:00")
                         .param("brandId", "1")
                         .param("productId", "35455"))
                 .andDo(print())
@@ -69,7 +69,7 @@ class InditexApplicationTests {
     void givenARequestOn14thAt21_shouldReturn200OkStatusAndExpectedData() throws Exception {
         mockMvc.perform(get("/inditex/price")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .param("dateTime", "2020-06-14 21:00:00")
+                        .param("dateTime", "2020-06-14T21:00:00")
                         .param("brandId", "1")
                         .param("productId", "35455"))
                 .andDo(print())
@@ -89,7 +89,7 @@ class InditexApplicationTests {
     void givenARequestOn15thAt10_shouldReturn200OkStatusAndExpectedData() throws Exception {
         mockMvc.perform(get("/inditex/price")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .param("dateTime", "2020-06-15 10:00:00")
+                        .param("dateTime", "2020-06-15T10:00:00")
                         .param("brandId", "1")
                         .param("productId", "35455"))
                 .andDo(print())
@@ -109,7 +109,7 @@ class InditexApplicationTests {
     void givenARequestOn16thAt21_shouldReturn200OkStatusAndExpectedData() throws Exception {
         mockMvc.perform(get("/inditex/price")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .param("dateTime", "2020-06-16 21:00:00")
+                        .param("dateTime", "2020-06-16T21:00:00")
                         .param("brandId", "1")
                         .param("productId", "35455"))
                 .andDo(print())
@@ -129,7 +129,7 @@ class InditexApplicationTests {
     void givenARequestOn13thAt21_shouldReturn200OkStatusAndEmptyBody() throws Exception {
         mockMvc.perform(get("/inditex/price")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .param("dateTime", "2020-06-13 21:00:00")
+                        .param("dateTime", "2020-06-13T21:00:00")
                         .param("brandId", "1")
                         .param("productId", "35455"))
                 .andDo(print())
