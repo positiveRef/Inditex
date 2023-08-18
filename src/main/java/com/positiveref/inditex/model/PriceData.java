@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Price {
+public class PriceData {
     // identificador de producto,
     // identificador de cadena,
     // tarifa a aplicar,

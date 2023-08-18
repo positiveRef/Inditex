@@ -1,6 +1,6 @@
 package com.positiveref.inditex.controller;
 
-import com.positiveref.inditex.model.Price;
+import com.positiveref.inditex.model.PriceData;
 import com.positiveref.inditex.service.PriceService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,12 +22,12 @@ public class PriceController {
     private final PriceService priceService;
 
     @GetMapping(value = "/price")
-    public ResponseEntity<Price> getPrice(@RequestParam
+    public ResponseEntity<PriceData> getPrice(@RequestParam
                                           @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
                                           LocalDateTime dateTime,
-                                          @RequestParam
+                                              @RequestParam
                                           Long productId,
-                                          @RequestParam
+                                              @RequestParam
                                           Long brandId) {
 
         log.info("Received request through GET inditex/price with parameters dateTime: {}, productId: {}, brandId: {}",

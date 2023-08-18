@@ -4,9 +4,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -22,9 +24,9 @@ class InditexApplicationTests {
     private MockMvc mockMvc;
 
     @Test
-    void contextLoads() {
+    void contextLoads(ApplicationContext context) {
+        assertThat(context).isNotNull();
     }
-
     @Test
     void givenARequestOn14thAt10_shouldReturn200OkStatusAndExpectedData() throws Exception {
         mockMvc.perform(get("/inditex/price")
