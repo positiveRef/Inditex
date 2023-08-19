@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.PageImpl;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -34,21 +35,15 @@ class PriceServiceTest {
 
     @Test
     void whenRepositoryReturnsMoreThanOneRegister_shouldFilterByPriorityAndReturnPrice() {
-        when(priceRepository.findByDateAndProductIdAndBrandId(any(), any(), any()))
-                .thenReturn(List.of(
-                        PriceEntity.builder()
-                                .price(BigDecimal.TEN)
-                                .startDate(LocalDateTime.of(2020, 1, 1, 0, 0))
-                                .endDate(LocalDateTime.of(2023, 1, 1, 0, 0))
-                                .priority(0L)
-                                .build(),
+        when(priceRepository.findByDateAndProductIdAndBrandId(any(), any(), any(), any()))
+                .thenReturn(new PageImpl<>(List.of(
                         PriceEntity.builder()
                                 .price(BigDecimal.ONE)
                                 .startDate(LocalDateTime.of(2020, 2, 1, 0, 0))
                                 .endDate(LocalDateTime.of(2023, 2, 1, 0, 0))
                                 .priority(1L)
                                 .build()
-                ));
+                )));
         PriceData priceData = priceService.findPrice(LocalDateTime.now(), 32L, 1L);
 
         assertThat(priceData).isNotNull();
@@ -59,8 +54,8 @@ class PriceServiceTest {
     void whenRepositoryReturnsEmptyList_shouldThrowException() {
         LocalDateTime now = LocalDateTime.now();
         String expectedMessage = "Element not found";
-        when(priceRepository.findByDateAndProductIdAndBrandId(any(), any(), any()))
-                .thenReturn(List.of());
+        when(priceRepository.findByDateAndProductIdAndBrandId(any(), any(), any(), any()))
+                .thenReturn(new PageImpl<>(List.of()));
         NoSuchElementFoundException exception = assertThrows(NoSuchElementFoundException.class,
                 () -> priceService.findPrice(now, 32L, 1L));
 
