@@ -1,6 +1,7 @@
 package com.positiveref.inditex.repository;
 
-import com.positiveref.inditex.entity.PriceEntity;
+import com.positiveref.inditex.domain.entity.PriceEntity;
+import com.positiveref.inditex.domain.repository.PriceRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

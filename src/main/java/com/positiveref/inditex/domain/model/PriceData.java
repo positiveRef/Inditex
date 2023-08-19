@@ -1,35 +1,27 @@
-package com.positiveref.inditex.entity;
+package com.positiveref.inditex.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "PRICES")
-public class PriceEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long priceList;
+public class PriceData {
+    // identificador de producto,
+    // identificador de cadena,
+    // tarifa a aplicar,
+    // fechas de aplicación
+    // y precio final a aplicar.
     private Long brandId;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private Long productId;
-    private Long priority;
     private BigDecimal price;
     private String currency;
-
 }

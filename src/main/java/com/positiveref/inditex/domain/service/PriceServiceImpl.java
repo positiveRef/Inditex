@@ -1,8 +1,9 @@
-package com.positiveref.inditex.service;
+package com.positiveref.inditex.domain.service;
 
-import com.positiveref.inditex.entity.PriceEntity;
-import com.positiveref.inditex.model.PriceData;
-import com.positiveref.inditex.repository.PriceRepository;
+import com.positiveref.inditex.domain.entity.PriceEntity;
+import com.positiveref.inditex.domain.exception.NoSuchElementFoundException;
+import com.positiveref.inditex.domain.model.PriceData;
+import com.positiveref.inditex.domain.repository.PriceRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -28,7 +29,8 @@ public class PriceServiceImpl implements PriceService {
                 .map(priceEntity -> modelMapper.map(priceEntity, PriceData.class))
                 .orElse(null);
         if (priceData == null) {
-            log.warn("PriceData not found with given inputs");
+            log.error("PriceData not found with given inputs");
+            throw new NoSuchElementFoundException();
         }
         return priceData;
     }

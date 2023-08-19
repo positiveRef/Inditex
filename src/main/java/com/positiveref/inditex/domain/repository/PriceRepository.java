@@ -1,6 +1,6 @@
-package com.positiveref.inditex.repository;
+package com.positiveref.inditex.domain.repository;
 
-import com.positiveref.inditex.entity.PriceEntity;
+import com.positiveref.inditex.domain.entity.PriceEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

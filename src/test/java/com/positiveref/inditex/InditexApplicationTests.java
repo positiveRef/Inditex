@@ -135,8 +135,8 @@ class InditexApplicationTests {
                         .param("brandId", "1")
                         .param("productId", "35455"))
                 .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$").doesNotExist());
+                .andExpect(status().isNotFound())
+                .andExpect(content().string("Element not found"));
     }
 
     @Test

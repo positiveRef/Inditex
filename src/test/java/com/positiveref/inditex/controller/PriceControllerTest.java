@@ -1,7 +1,8 @@
 package com.positiveref.inditex.controller;
 
-import com.positiveref.inditex.model.PriceData;
-import com.positiveref.inditex.service.PriceService;
+import com.positiveref.inditex.application.controller.PriceController;
+import com.positiveref.inditex.domain.model.PriceData;
+import com.positiveref.inditex.domain.service.PriceService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

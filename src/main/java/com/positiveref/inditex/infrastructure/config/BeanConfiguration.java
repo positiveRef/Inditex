@@ -1,8 +1,8 @@
-package com.positiveref.inditex.config;
+package com.positiveref.inditex.infrastructure.config;
 
-import com.positiveref.inditex.repository.PriceRepository;
-import com.positiveref.inditex.service.PriceService;
-import com.positiveref.inditex.service.PriceServiceImpl;
+import com.positiveref.inditex.domain.repository.PriceRepository;
+import com.positiveref.inditex.domain.service.PriceService;
+import com.positiveref.inditex.domain.service.PriceServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

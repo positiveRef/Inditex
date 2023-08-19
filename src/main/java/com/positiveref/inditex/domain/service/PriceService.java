@@ -1,6 +1,6 @@
-package com.positiveref.inditex.service;
+package com.positiveref.inditex.domain.service;
 
-import com.positiveref.inditex.model.PriceData;
+import com.positiveref.inditex.domain.model.PriceData;
 
 import java.time.LocalDateTime;
 

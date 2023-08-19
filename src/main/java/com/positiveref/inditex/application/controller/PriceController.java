@@ -1,7 +1,7 @@
-package com.positiveref.inditex.controller;
+package com.positiveref.inditex.application.controller;
 
-import com.positiveref.inditex.model.PriceData;
-import com.positiveref.inditex.service.PriceService;
+import com.positiveref.inditex.domain.model.PriceData;
+import com.positiveref.inditex.domain.service.PriceService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
